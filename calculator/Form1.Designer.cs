@@ -38,7 +38,7 @@
             this.lbl_result.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_result.Location = new System.Drawing.Point(0, 32);
             this.lbl_result.Name = "lbl_result";
-            this.lbl_result.Size = new System.Drawing.Size(283, 69);
+            this.lbl_result.Size = new System.Drawing.Size(325, 69);
             this.lbl_result.TabIndex = 2;
             this.lbl_result.Text = "0";
             this.lbl_result.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -48,14 +48,14 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(283, 32);
+            this.panelTop.Size = new System.Drawing.Size(325, 32);
             this.panelTop.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(283, 450);
+            this.ClientSize = new System.Drawing.Size(325, 450);
             this.Controls.Add(this.lbl_result);
             this.Controls.Add(this.panelTop);
             this.Name = "Form1";
