@@ -42,6 +42,7 @@
             this.lbl_result.TabIndex = 2;
             this.lbl_result.Text = "0";
             this.lbl_result.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl_result.TextChanged += new System.EventHandler(this.lbl_result_TextChanged);
             // 
             // panelTop
             // 
@@ -55,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 450);
+            this.ClientSize = new System.Drawing.Size(325, 490);
             this.Controls.Add(this.lbl_result);
             this.Controls.Add(this.panelTop);
             this.Name = "Form1";
