@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,9 +49,14 @@ namespace calculator
             {new BtnStruct('1',SymbolType.Number,true), new BtnStruct('2',SymbolType.Number,true), new BtnStruct('3',SymbolType.Number,true), new BtnStruct('+',SymbolType.Operator) },
             {new BtnStruct('\u00B1',SymbolType.PlusMinusSign), new BtnStruct('0',SymbolType.Number,true), new BtnStruct(',',SymbolType.DecimalPoint), new BtnStruct('=',SymbolType.Operator) },
         };
+
+        float lblResultBaseFontSize;
+        const int lblResultWidthMargin = 24;
+        const int lblResultMaxDigit = 25;
         public Form1()
         {
             InitializeComponent();
+            lblResultBaseFontSize = lbl_result.Font.Size;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -143,18 +149,33 @@ namespace calculator
 
         private void lbl_result_TextChanged(object sender, EventArgs e)
         {
-            if(lbl_result.Text.Length > 16)
+            if (lbl_result.Text.Length > 0)
             {
-                lbl_result.Text = lbl_result.Text.Substring(0, 16);
+                double num = double.Parse(lbl_result.Text); string stOut = "";
+                NumberFormatInfo nfi = new CultureInfo("it-IT", false).NumberFormat;
+                int decimalSeparatorPosition = lbl_result.Text.IndexOf(",");
+                nfi.NumberDecimalDigits = decimalSeparatorPosition == -1 ? 0
+                    : lbl_result.Text.Length - decimalSeparatorPosition - 1;
+                stOut = num.ToString("N", nfi);
+                if (lbl_result.Text.IndexOf(",") == lbl_result.Text.Length - 1) stOut += ",";
+                lbl_result.Text = stOut;
+
+
             }
-            if (lbl_result.Text.Length > 11)
+
+            if (lbl_result.Text.Length > lblResultMaxDigit)
+                lbl_result.Text = lbl_result.Text.Substring(0, lblResultMaxDigit);
+
+            int textWidth = TextRenderer.MeasureText(lbl_result.Text, lbl_result.Font).Width;          
+            float newSize = lbl_result.Font.Size * (((float)lbl_result.Size.Width-lblResultWidthMargin) / textWidth);
+            if (newSize > lblResultBaseFontSize)
             {
-                float delta = lbl_result.Text.Length - 11;
-                lbl_result.Font = new Font("Segoe UI", 36 - delta*(float)2.8, FontStyle.Regular);
-            }else 
-            {
-                lbl_result.Font = new Font("Segoe UI", 36, FontStyle.Regular);
+                newSize = lblResultBaseFontSize;
             }
+            lbl_result.Font = new Font("Segoe UI", newSize, FontStyle.Regular);
+            
+            
+                
         }
     }
 }
