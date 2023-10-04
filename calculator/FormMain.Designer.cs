@@ -1,6 +1,6 @@
 ﻿namespace calculator
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// Variabile di progettazione necessaria.
@@ -59,9 +59,9 @@
             this.ClientSize = new System.Drawing.Size(325, 490);
             this.Controls.Add(this.lbl_result);
             this.Controls.Add(this.panelTop);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "FormMain";
+            this.Text = "FormMain";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
 
         }
