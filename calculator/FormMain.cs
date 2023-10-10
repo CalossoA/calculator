@@ -325,6 +325,8 @@ namespace calculator
                 newSize = lblResultBaseFontSize;
             }
             lbl_result.Font = new Font("Segoe UI", newSize, FontStyle.Regular);
+
+
         }
     }
 }

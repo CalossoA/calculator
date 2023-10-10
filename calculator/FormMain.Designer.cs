@@ -52,15 +52,16 @@
             this.panelTop.Controls.Add(this.lblCrono);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(4);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(433, 39);
             this.panelTop.TabIndex = 3;
             // 
             // lblCrono
             // 
+            this.lblCrono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCrono.AutoSize = true;
-            this.lblCrono.Location = new System.Drawing.Point(377, 9);
+            this.lblCrono.Location = new System.Drawing.Point(247, 0);
             this.lblCrono.Name = "lblCrono";
             this.lblCrono.Size = new System.Drawing.Size(44, 16);
             this.lblCrono.TabIndex = 0;
@@ -73,7 +74,7 @@
             this.ClientSize = new System.Drawing.Size(433, 603);
             this.Controls.Add(this.lbl_result);
             this.Controls.Add(this.panelTop);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.Text = "FormMain";
             this.Load += new System.EventHandler(this.FormMain_Load);
