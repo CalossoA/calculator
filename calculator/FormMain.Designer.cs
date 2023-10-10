@@ -30,15 +30,18 @@
         {
             this.lbl_result = new System.Windows.Forms.Label();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.lblCrono = new System.Windows.Forms.Label();
+            this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_result
             // 
             this.lbl_result.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_result.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_result.Location = new System.Drawing.Point(0, 32);
+            this.lbl_result.Location = new System.Drawing.Point(0, 39);
+            this.lbl_result.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_result.Name = "lbl_result";
-            this.lbl_result.Size = new System.Drawing.Size(325, 69);
+            this.lbl_result.Size = new System.Drawing.Size(433, 85);
             this.lbl_result.TabIndex = 2;
             this.lbl_result.Text = "0";
             this.lbl_result.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -46,22 +49,36 @@
             // 
             // panelTop
             // 
+            this.panelTop.Controls.Add(this.lblCrono);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(325, 32);
+            this.panelTop.Size = new System.Drawing.Size(433, 39);
             this.panelTop.TabIndex = 3;
             // 
-            // Form1
+            // lblCrono
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.lblCrono.AutoSize = true;
+            this.lblCrono.Location = new System.Drawing.Point(377, 9);
+            this.lblCrono.Name = "lblCrono";
+            this.lblCrono.Size = new System.Drawing.Size(44, 16);
+            this.lblCrono.TabIndex = 0;
+            this.lblCrono.Text = "label1";
+            // 
+            // FormMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 490);
+            this.ClientSize = new System.Drawing.Size(433, 603);
             this.Controls.Add(this.lbl_result);
             this.Controls.Add(this.panelTop);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormMain";
             this.Text = "FormMain";
             this.Load += new System.EventHandler(this.FormMain_Load);
+            this.panelTop.ResumeLayout(false);
+            this.panelTop.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -70,6 +87,7 @@
 
         private System.Windows.Forms.Label lbl_result;
         private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.Label lblCrono;
     }
 }
 

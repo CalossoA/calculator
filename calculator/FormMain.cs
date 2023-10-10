@@ -65,6 +65,7 @@ namespace calculator
         {
             MakeButtons(buttons.GetLength(0), buttons.GetLength(1));
             lblResultBaseFontSize = lbl_result.Font.Size;
+            lblCrono.Text = "";
         }
 
         private void MakeButtons(int rows, int cols)
@@ -109,18 +110,24 @@ namespace calculator
                         lbl_result.Text = "";
                     }
                     lbl_result.Text += clickedButton.Text;
+                 //   lblCrono.Text += clickedButton.Text;
                     break;
 
                 case SymbolType.SpecialOp:
+                  
                     specialOperatorManage(clickedButtonStruct);
                     break;
                 case SymbolType.Operator:               
                     if (lastButtonClicked.type == SymbolType.Operator && clickedButtonStruct.Content != '=')
                     {
                         lastOperator = clickedButtonStruct.Content;
+                        
                     }
                     else
                     {
+
+                       lblCrono.Text+= lbl_result.Text+" "+ clickedButton.Text+" ";
+
                         ManageOperator(clickedButtonStruct);
                     }
 
@@ -130,10 +137,12 @@ namespace calculator
                 case SymbolType.DecimalPoint:
                     if (lbl_result.Text.IndexOf(",") == -1)
                     {
+                        lblCrono.Text += " " + clickedButton.Text;
                         lbl_result.Text += clickedButton.Text;
                     }
                     break;
                 case SymbolType.PlusMinusSign:
+                    lblCrono.Text += " " + clickedButton.Text;
                     if (lbl_result.Text != "0")
                     {
                         if (lbl_result.Text.IndexOf("-") == -1)
@@ -144,10 +153,14 @@ namespace calculator
                         {
                             lbl_result.Text = lbl_result.Text.Substring(1);
                         }
+                        if(lastButtonClicked.type== SymbolType.Operator)
+                        {
+                            op1 = -op2;
+                        }
                     }
                     break;
                 case SymbolType.backspace:
-                    if (lastButtonClicked.type != SymbolType.Operator)
+                    if (lastButtonClicked.type != SymbolType.Operator && lastButtonClicked.type != SymbolType.SpecialOp)
                     {
                         lbl_result.Text = lbl_result.Text.Substring(0, lbl_result.Text.Length - 1);
                         if (lbl_result.Text.Length == 0 || lbl_result.Text == "-0" || lbl_result.Text == "-")
@@ -190,6 +203,7 @@ namespace calculator
             result = 0;
             lastOperator = ' ';
             lbl_result.Text = "0";
+            lblCrono.Text = "";
         }
 
         private void specialOperatorManage(BtnStruct clickedButtonStruct)
@@ -198,15 +212,20 @@ namespace calculator
             switch (clickedButtonStruct.Content)
             {
                 case '\u215F': // 1/x
+                    lblCrono.Text += "1/( " + lbl_result.Text + " )";
                     result = 1 / op2;
+
                     break;
                 case '%':
-                    result = op1 * op2 / 100;
+                    result=op1*op2/100;
+                    lblCrono.Text += " "+result;
                     break;
                 case '\u00B2': //x alla seconda
+                    lblCrono.Text += "sqr( " + lbl_result.Text+" )";
                     result = op2 * op2;
                     break;
                 case '\u221A': //radice
+                    lblCrono.Text += '\u221A'+"( "  + lbl_result.Text + " )";
                     result = (decimal)Math.Sqrt((double)op2);
                     break;
                 default:
@@ -230,6 +249,7 @@ namespace calculator
                 switch (lastOperator)
                 {
                     case '+':
+                        
                         result = op1 + op2;
                         break;
 
