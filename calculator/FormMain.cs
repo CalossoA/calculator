@@ -249,11 +249,16 @@ namespace calculator
                     }
                     break;
                 case '\u00B2': //x alla seconda
-                    if (lblCrono.Text == "")
+                     if (lblCrono.Text == "")
                     {
                         lblCrono.Text += "sqr( " + lbl_result.Text + " )";
-                        
-                    }else if(lbl_result.Text != "")
+
+                    }
+                    else if (lastButtonClicked.type == clickedButtonStruct.type)
+                    {
+                        lblCrono.Text = "sqr( " + lblCrono.Text + " )";
+                    }
+                    else if(lbl_result.Text != "")
                     {
                         lblCrono.Text = "sqr( " + lbl_result.Text + " )";
                     }else
@@ -269,9 +274,20 @@ namespace calculator
                     lblCrono.Text += '\u221A'+"( "  + lbl_result.Text + " )";
 
                     }
-                    else
+                    else if (lastButtonClicked.type == clickedButtonStruct.type)
                     {
                         lblCrono.Text = '\u221A' + "( " + lblCrono.Text + " )";
+                    }
+                    else
+                    {
+                        if (lastButtonClicked.Content == '=')
+                        {
+                            lblCrono.Text = '\u221A' + "( " + lbl_result.Text + " )";
+                        }
+                        else
+                        {
+                        lblCrono.Text += '\u221A' + "( " + lbl_result.Text + " )";
+                        }
                     }
                     result = (decimal)Math.Sqrt((double)op2);
                     break;
