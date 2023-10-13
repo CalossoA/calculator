@@ -106,7 +106,7 @@ namespace calculator
             switch (clickedButtonStruct.type)
             {
                 case SymbolType.Number:
-                    if (lbl_result.Text == "0" || lastButtonClicked.type == SymbolType.Operator)
+                    if (lbl_result.Text == "0" || lastButtonClicked.type == SymbolType.Operator || lastButtonClicked.type == SymbolType.SpecialOp)
                     {
                         lbl_result.Text = "";
                     }
@@ -147,12 +147,12 @@ namespace calculator
                 case SymbolType.DecimalPoint:
                     if (lbl_result.Text.IndexOf(",") == -1)
                     {
-                        lblCrono.Text += " " + clickedButton.Text;
+                        lblCrono.Text = "";
                         lbl_result.Text += clickedButton.Text;
                     }
                     break;
                 case SymbolType.PlusMinusSign:
-                    lblCrono.Text += " " + clickedButton.Text;
+                    //lblCrono.Text += " " + clickedButton.Text;
                     if (lbl_result.Text != "0")
                     {
                         if (lbl_result.Text.IndexOf("-") == -1)
@@ -192,6 +192,7 @@ namespace calculator
                     else
                     {
                         lbl_result.Text = "0";
+                      //  lblCrono.Text = "";
                     }
                     break;
                 case SymbolType.undefined:
@@ -226,20 +227,52 @@ namespace calculator
             switch (clickedButtonStruct.Content)
             {
                 case '\u215F': // 1/x
-                    lblCrono.Text += "1/( " + lbl_result.Text + " )";
+                    if (lblCrono.Text == "")
+                    {
+                        lblCrono.Text += "1/( " + lbl_result.Text + " )";
+
+                    }
+                    else
+                    {
+                        lblCrono.Text = "1/( " + lblCrono.Text + " )";
+                    }
+
                     result = 1 / op2;
 
                     break;
                 case '%':
                     result=op1*op2/100;
                     lblCrono.Text += " "+result;
+                    if (lblCrono.Text==" 0,000"){
+                        result= 0;
+                        lblCrono.Text = "0";
+                    }
                     break;
                 case '\u00B2': //x alla seconda
-                    lblCrono.Text += "sqr( " + lbl_result.Text+" )";
+                    if (lblCrono.Text == "")
+                    {
+                        lblCrono.Text += "sqr( " + lbl_result.Text + " )";
+                        
+                    }else if(lbl_result.Text != "")
+                    {
+                        lblCrono.Text = "sqr( " + lbl_result.Text + " )";
+                    }else
+                    {
+                        lblCrono.Text = "sqr( " + lblCrono.Text + " )";
+                    }
+                    
                     result = op2 * op2;
                     break;
                 case '\u221A': //radice
+                    if (lblCrono.Text == "")
+                    {
                     lblCrono.Text += '\u221A'+"( "  + lbl_result.Text + " )";
+
+                    }
+                    else
+                    {
+                        lblCrono.Text = '\u221A' + "( " + lblCrono.Text + " )";
+                    }
                     result = (decimal)Math.Sqrt((double)op2);
                     break;
                 default:
@@ -254,7 +287,14 @@ namespace calculator
             if (lastOperator == ' ' )
             {
                 op1 = decimal.Parse(lbl_result.Text);
-                if(clickedButtonStruct.Content!='=')lastOperator = clickedButtonStruct.Content;
+                if (clickedButtonStruct.Content != '=')
+                {
+                    lastOperator = clickedButtonStruct.Content;
+                }
+                else
+                {
+                    lblCrono.Text = lbl_result.Text + " " + "=";
+                }
             }
             else
             {
@@ -283,7 +323,7 @@ namespace calculator
                     default:
                         break;
                 }
-                lblCrono.Text = op1 + " " + lastOperator + " "+op2+" "+"=";
+                lblCrono.Text = op1 + " " + lastOperator + " "+op2+" " + "=";
                 op1 = result;
                 if (clickedButtonStruct.Content != '=')
                 {

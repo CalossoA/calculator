@@ -1,6 +1,6 @@
 ﻿namespace calculator
 {
-    partial class FormMain
+    partial class Form1
     {
         /// <summary>
         /// Variabile di progettazione necessaria.
@@ -30,56 +30,39 @@
         {
             this.lbl_result = new System.Windows.Forms.Label();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.lblCrono = new System.Windows.Forms.Label();
-            this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_result
             // 
             this.lbl_result.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_result.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_result.Location = new System.Drawing.Point(0, 39);
-            this.lbl_result.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_result.Location = new System.Drawing.Point(0, 32);
             this.lbl_result.Name = "lbl_result";
-            this.lbl_result.Size = new System.Drawing.Size(433, 85);
-            this.lbl_result.TabIndex = 2;
+            this.lbl_result.Size = new System.Drawing.Size(322, 69);
+            this.lbl_result.TabIndex = 0;
             this.lbl_result.Text = "0";
             this.lbl_result.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbl_result.TextChanged += new System.EventHandler(this.lbl_result_TextChanged);
             // 
             // panelTop
             // 
-            this.panelTop.Controls.Add(this.lblCrono);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(4);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(433, 39);
-            this.panelTop.TabIndex = 3;
+            this.panelTop.Size = new System.Drawing.Size(322, 32);
+            this.panelTop.TabIndex = 1;
             // 
-            // lblCrono
+            // Form1
             // 
-            this.lblCrono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCrono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrono.Location = new System.Drawing.Point(3, 0);
-            this.lblCrono.Name = "lblCrono";
-            this.lblCrono.Size = new System.Drawing.Size(430, 39);
-            this.lblCrono.TabIndex = 0;
-            this.lblCrono.Text = "label1";
-            this.lblCrono.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // FormMain
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 603);
+            this.ClientSize = new System.Drawing.Size(322, 476);
             this.Controls.Add(this.lbl_result);
             this.Controls.Add(this.panelTop);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FormMain";
-            this.Text = "FormMain";
-            this.Load += new System.EventHandler(this.FormMain_Load);
-            this.panelTop.ResumeLayout(false);
+            this.MaximizeBox = false;
+            this.Name = "Form1";
+            this.ShowIcon = false;
+            this.Text = "Calcolatrice";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
@@ -88,7 +71,6 @@
 
         private System.Windows.Forms.Label lbl_result;
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Label lblCrono;
     }
 }
 
