@@ -1,21 +1,24 @@
-# CALCULATOR ANDREA CALOSSO
-### Progetto di Andrea Calosso
-Lo scopo del progetto ***Calculator*** è produrre un clone...
+# CALCULATOR 2023
+## Progetto di Andrea Calosso, 4B INF
+Lo scopo del progetto ***Calculator*** è produrre un clone della  calcolatrice di Windows in C#.
+#### Il progetto include operazioni di base come:
+- Addizione
+- Sottrazione
+- Moltiplicazione
+- Divisione
 
-La classe ~~3 INF B~~ 4 INF B è composta da 22 studenti:
-1. Alessandria Elia
-1. Armellini Luca
-1. Belba Jurgen
-1. ...
+#### Alcune operazioni speciali come: 
+- la radice quadrata
+- La potenza al quadrato
+- La percentuale
+- Funzione inversa (1\)
 
-Gli step realizzativi saranno i seguenti: 
+#### Vi sono inoltre: 
+- un bottone per porrè negativo un numero
+- il bottone "CE" per eliminare l'ultimo numero digitato
+- il bottone "C" per eliminare tutta l'operazione
+- il bottone ","
+- un bottone per cancellare
 
-* presa di confidenza con GIT e gli altri strumenti di lavoro;
-* creazione per progetto Windows Forms dotNet;
-* Realizzazine del codice
-    - creazione dinamica dei pulsanrti di comando
-    - programmazione comune dell' evento click
-    - ...
+#### E' stata programmata infine, una label che contenesse, man mano le operazioni fatte dell' utente.
 
-Tramite il comando `git status` è possibile visionare la 
-condizione del nostro repository git locale.
